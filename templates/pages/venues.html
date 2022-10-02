@@ -1,0 +1,26 @@
+{% extends 'layouts/main.html' %}
+{% block title %}Fyyur | Venues{% endblock %}
+{% block content %}
+<div class="container">
+	<div class="col-12">
+		<div id="error" class="hidden">Something went wrong</div>
+	</div>
+	{% for list in lists %}
+		<div class="item d-flex justify-content-around" >
+			<a href="/venues/{{ list.id }}" style="display: inline-block;">
+				<span> <i class="fas fa-music"></i>  </span>
+				<span>
+					<span >{{ list.name }}</span>
+					<p>{{ list.city }}, {{ list.state }}</p>
+				</span>
+			</a>
+			<span>
+				<button data-id="{{ list.id }}" type="button" class="btn btn-danger deletevenuebtn">Delete</button>
+			</span>
+			
+		</div>
+		
+	{% endfor %}
+</div>
+
+{% endblock %}
